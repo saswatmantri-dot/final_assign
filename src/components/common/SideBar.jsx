@@ -1,4 +1,5 @@
 import logo from '../../assets/bank.png';
+import { Link } from 'react-router-dom';
 
 const items = [
   { icon: '◉', label: 'Dashboard', active: true },
@@ -19,9 +20,27 @@ export default function Sidebar() {
 
       <nav className="space-y-1 px-2">
         {items.map((item) => (
-          <button key={item.label} className={`w-full flex items-center gap-3 px-3 py-2 text-sm rounded-sm transition ${item.active ? 'bg-red-50 text-red-600 border-r-2 border-red-500' : 'text-gray-700 hover:bg-gray-100'}`}>
+          <button 
+            key={item.label} 
+            className={`w-full flex items-center gap-3 px-3 py-2 text-sm rounded-sm transition ${
+              item.active 
+                ? 'bg-red-50 text-red-600 border-r-2 border-red-500' 
+                : 'text-gray-700 hover:bg-gray-100'
+            }`}
+          >
             <span>{item.icon}</span>
-            <span className="text-left">{item.label}</span>
+            
+            {item.label === 'Bank User Management' ? (
+              <Link 
+                to="/userRequestPage"
+                className="text-[#8b0305] font-bold hover:underline underline-offset-4"
+              >
+                <span className="text-left">{item.label}</span>
+              </Link>
+            ) : (
+              <span className="text-left">{item.label}</span>
+            )}
+
           </button>
         ))}
       </nav>

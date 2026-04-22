@@ -15,10 +15,9 @@ function FinalApp() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/forgot-password" element={<ForgotPasswordPage />} />
       <Route path="/main" element={<MainPage />} />
+      <Route path="/userRequestPage" element={<UserRequestPage />} /> 
     </Routes>
   </BrowserRouter>
-  // <MainPage />
-  // <UserRequestPage />
   )
 }
 
